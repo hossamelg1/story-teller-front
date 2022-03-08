@@ -1,0 +1,76 @@
+<div class="row py-5 px-4">
+    <div class="col-md-12 mx-auto">
+        <!-- Profile widget -->
+        <div class="bg-white shadow rounded overflow-hidden">
+            <div class="px-4 pt-0 pb-4 cover">
+                <div class="media align-items-end profile-head">
+                    <div class="profile mr-3"><img src="{{logged_user.img}}" alt="..." width="130"
+                            class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-outline-dark btn-sm btn-block"
+                            [routerLink]="'/edit-profile'">Edit profile</a></div>
+                    <div class="media-body mb-5 text-white">
+                        <h4 class="mt-0 mb-0">{{ logged_user.firstname | titlecase }} {{ logged_user.lastname |
+                            titlecase }}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-light p-4 d-flex justify-content-end text-center">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                        <h5 class="font-weight-bold mb-0 d-block">{{posts?.length}}</h5><small class="text-muted"> <i
+                                class="fas fa-image mr-1"></i>Stories</small>
+                    </li>
+                    <li class="list-inline-item">
+                        <h5 class="font-weight-bold mb-0 d-block">0</h5><small class="text-muted"> <i
+                                class="fas fa-user mr-1"></i>Followers</small>
+                    </li>
+                    <li class="list-inline-item">
+                        <h5 class="font-weight-bold mb-0 d-block">0</h5><small class="text-muted"> <i
+                                class="fas fa-user mr-1"></i>Following</small>
+                    </li>
+                </ul>
+            </div>
+            <div class="px-4 py-3">
+                <h5 class="mb-0">Biography</h5>
+                <div *ngIf="logged_user.biography == undefined" class="p-4 rounded shadow-sm bg-light">
+                    <p class="font-italic mb-0">No biography set</p>
+                </div>
+                <div *ngIf="logged_user.biography != undefined">
+                    <div *ngFor="let line of logged_user.biography.split('\n')" class="p-4 rounded shadow-sm bg-light">
+                        <p class="font-italic mb-0">{{ line }}</p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!auth.user.isAdmin" class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="panel panel-default panel-table">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col col-xs-6">
+                                        <h3 class="panel-title">My Stories</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--  -->
+                            <div class="panel-body" >
+                                <table class="table table-striped table-bordered table-list">
+                                    <thead>
+                                        <tr align="center">
+                                            <th>Title</th>
+                                            <th style="text-align: center;"><em class="fa fa-cog"></em></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody align="center" *ngFor="let post of posts">
+                                        <tr>
+                                            <td>{{post.title}}</td>
+                                            <td align="center">
+                                                <button class="btn btn-danger"
+                                                    (click)="deleteStory(post.id)">Remove</button>
+                                            </td>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            

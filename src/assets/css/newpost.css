@@ -1,0 +1,34 @@
+h2{
+	margin-top: -100px !important;
+	margin-left: 40%;
+}
+.cont {
+	margin-left: 200px;
+	width: 800px ;
+	height: 800px ;
+	background-color: #f8f9fa ;
+	font-family: 'Cookie' !important;
+	font-size: 25px;
+}
+.cont h2{	
+	font-family: 'Cookie' !important;
+	font-size: 50px;
+}
+.cont p {
+	border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+	display: inline;
+}
+#image{
+	position: absolute;
+	top : 500px  !important;
+	left: 0px !important;
+}
+  .article {
+	display: inline-block;
+  }
+#title{
+	font-size: 26px;
+}

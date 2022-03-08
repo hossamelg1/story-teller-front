@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<navbar></navbar>
+<html>
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap');
+    </style>
+    <title>New post</title>
+</head>
+
+<body>
+    <div id='container' class="row">
+        <div class="col-4">
+            
+        </div>
+        <div class="col-8">
+            <button class="btn btn-primary" id="buttonstyle" (click)="getResult()">Publish</button>
+            <div class="content">
+                <div class="high">
+                    <div (keydown.enter)="stopEnter()" class="header">
+                        <span id='title' (click)="titleCliked()" (focusout)="keyOut()"
+                            style="text-align: left">Title</span>
+                    </div>
+                </div>
+                <div class="article" (focusout)="keyOut2()" (keydown.enter)="enterClicked($event)"
+                    style="height: 100px; width: 100%">
+                    <p class="placeholder" (click)="spanClicked()" style="color: grey; text-align: left">
+                        Tell a story...
+                    </p>
+                    <div id="add-media" style='position: relative; top:-47px; left:-60px; max-height:70px;max-width:70px'>
+                        <i (click)="toggleAdd()" class="add-button fa fa-plus-circle" style="font-size:36px">
+                        </i>
+                        <div class="caret" [style.visibility]="addClicked ? 'visible' : 'hidden'"></div>
+                        <div class="add-choices" [style.visibility]="addClicked ? 'visible' : 'hidden'">
+                            <div>
+                                <label for="image">
+                                    <i class="fa fa-image" style="font-size:36px"></i>
+                                </label>
+                                <input type="file" style="display:none" (change)="extractImage()" id="image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<!-- <script>
+    const button = document.querySelector('#add-button');
+    const tooltip = document.querySelector('#tooltip');
+    console.log("hi");
+    // Pass the button, the tooltip, and some options, and Popper will do the
+    // magic positioning for you:
+    Popper.createPopper(button, tooltip, {
+        placement: 'top',
+    });
+</script> -->

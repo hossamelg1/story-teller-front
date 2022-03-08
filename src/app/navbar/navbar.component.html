@@ -1,0 +1,27 @@
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">	
+<body>
+	
+	<!-- Navbar -->
+	<nav class="navbar-container">
+		
+		<ul class="nav navbar">
+			<li style="position: absolute; right: 700px; display: block;">
+					<img src="assets/img/curly-brackets.png" width="50px" >
+					<div style="left: -17px; position: absolute;">StoryTeller</div> 
+			</li>
+			<li class="nav-item" [ngClass]="{'active': this.router.url=='/'}"><a href="/">Home</a></li>
+			<li class="nav-item" [ngClass]="{'active': this.router.url=='/new-post'}"><a href="/new-post">New Story</a></li>
+			<li ngbDropdown class="nav-item active"[ngClass]="{'active': this.router.url=='/my-account'}" >
+                <a href="my-profile">Profile</a>
+            </li>
+			<div class='login' style="position: absolute; left: 680px">
+				<div *ngIf="is_logged" style="margin-top: 10px; margin-right: 20px">
+					<li ><a href="/my-account"><b><i>@{{logged_user.username}}</i></b></a></li>
+				</div>
+				<li *ngIf="is_logged"><img src="{{logged_user.img}}" class="img-circle" alt="Cinque Terre" width="40" height="40"> </li> 
+				<button  class="btn btn-primary" *ngIf="is_logged" style="margin-left: 40px;" (click)="logout()">Logout</button>
+				<button class="btn btn-primary" *ngIf="!is_logged" style="margin-left: 40px;" [routerLink]="'/login'">Login</button>
+			</div>	
+		</ul>
+	</nav>
+	

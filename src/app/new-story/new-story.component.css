@@ -1,0 +1,111 @@
+h2{
+	margin-top: -100px !important;
+	margin-left: 40%;
+}
+.cont {
+	margin-left: 200px;
+	width: 800px ;
+	height: 800px ;
+	background-color: #f8f9fa ;
+	font-family: 'Cookie' !important;
+	font-size: 25px;
+}
+.cont h2{	
+	font-family: 'Cookie' !important;
+	font-size: 50px;
+}
+.cont p {
+	border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+	display: inline;
+}
+#image{
+	position: absolute;
+	top : 500px  !important;
+	left: 0px !important;
+}
+  .article {
+	position: relative;
+	margin-right: 200px;
+	display: inline-block;
+  }
+p {
+	background: transparent;
+	border: 0;
+	border-style: none;
+	border-color: transparent;
+	outline: none;
+	outline-offset: 0;
+	box-shadow: none;
+}
+#title {
+	font-size: 35px;
+	color: grey !important;
+	border: none !important;
+    background-color: transparent !important;
+    resize: none !important;
+    outline: none !important;
+	display: inline !important;
+}
+#container {
+	position: relative;
+	right: 180px;
+	top : 150px;
+	/* right: 250px; */
+}
+.high{
+	height: 80px !important;
+}
+.header {
+	font-family: myFirstFont;
+	position: relative;
+	left:250px !important;
+	font-size: 26px;
+	color: grey !important;
+	border: none !important;
+    background-color: transparent !important;
+    resize: none !important;
+    outline: none !important;
+	display: inline !important;
+	font-family: 'Hina Mincho', serif;
+}
+h2 {
+	position: relative;
+	right: 200px;
+}
+.content {
+	position: relative;
+	font-family: 'Hina Mincho', serif;
+	font-size: 20px;
+}
+#buttonstyle{
+	position: relative;
+	left: 800px !important;
+}
+/* You can add global styles to this file, and also import other style files */
+.add-choices {
+    background-color: #333;
+	z-index: 9999;
+	position: relative;
+	top: 4px;
+	left: -17px;
+    color: white !important;
+    padding: 5px 10px;
+    border-radius: 9px;
+	text-align: center;
+	max-width: 60px;
+  }
+
+  .caret {
+	border-left: solid 16px transparent; 
+	border-right: solid 16px transparent; 
+	border-bottom: solid 14px #333 !important; 
+	height: 0; 
+	width: 0; 
+	position: relative;
+	top: 4.5px;
+	left: -3.5px;
+  }
+  

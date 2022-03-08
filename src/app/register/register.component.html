@@ -1,0 +1,76 @@
+<html>
+  <div class="container">
+    <header>
+      <h1>
+        <a href="#">
+          <img
+            src="http://tfgms.com/sandbox/dailyui/logo-1.png"
+            alt="Authentic Collection"
+          />
+        </a>
+      </h1>
+    </header>
+    <h1 class="text-center">Register</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="registration-form">
+    
+      <label>
+        <span class="label-text">First Name</span>
+        <input type="text" name="firstname"
+            formControlName="firstname"
+            id="firstname"/>
+        <div *ngIf="firstname?.invalid && firstname?.touched" style="color: red;font-size: 15px">
+            <small *ngIf="firstname?.errors?.minlength" class="text-danger">
+            First name must be at least 4 characters long
+          </small>
+        </div>
+      </label>
+      <label>
+        <span class="label-text">Last Name</span>
+        <input type="text" name="lastName"formControlName="lastname" id="lastname" />
+        <div *ngIf="lastname?.invalid && lastname?.touched" style="color: red;font-size: 15px">
+          <small *ngIf="lastname?.errors?.minlength" class="text-danger">
+            Last name must be at least 4 characters long
+          </small>
+        </div>
+      </label>
+      <label>
+        <span class="label-text">Username</span>
+        <input type="text" name="username"
+            formControlName="username"
+            id="username"/>
+        <div *ngIf="formErrors && formErrors['username'] != ''" style="color: red;font-size: 15px">
+            <small> {{formErrors['username']}}</small>
+        </div>
+        <div *ngIf="username?.invalid && username?.touched" style="color: red;font-size: 15px">
+            <small *ngIf="username?.errors?.minlength" class="text-danger">
+            Username be at least 4 characters long
+          </small>
+        </div>
+      </label>
+      <label>
+        <span class="label-text">Email</span>
+        <input type="email" name="email" formControlName="email" />
+        <div *ngIf="formErrors && formErrors['email'] != ''" style="color: red;font-size: 15px">
+            <small> {{formErrors['email']}}</small>
+        </div>
+        <div *ngIf="(email?.invalid && email?.touched)" style="color: red;font-size: 15px">
+            <small *ngIf="email?.errors?.pattern" class="text-danger">Please provide a valid email address</small>
+        </div>
+      </label>
+      <label class="password">
+        <span class="label-text">Password</span>
+        <input type="password" name="password" formControlName="password" />
+        <div *ngIf="password?.invalid && password?.touched">
+          <small *ngIf="password?.errors?.minlength" style="color: red;font-size: 15px" class="text-danger">Password  must be at least 8 characters long</small>
+        </div>
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" name="newsletter" />
+        <span>Sign me up for the weekly newsletter.</span>
+      </label>
+      <div class="text-center">
+        <button class="submit" [disabled]="!form.valid" name="register">Sign Me Up</button>
+      </div>
+    </form>
+  </div>
+</html>

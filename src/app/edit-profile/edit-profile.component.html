@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  
+<head></head>
+
+<body>
+  <div class="wrapper">
+    <div class="profile">
+      <div class="content">
+        <h1>Edit Profile</h1>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+          <!-- Photo -->
+          <fieldset>
+            <div class=" grid-35">
+              <label for="avatar">Your Photo</label>
+            </div>
+            <div class="grid-65">
+              <img src="{{logged_user.img}}" class="img-circle" alt="Cinque Terre" width="80" height="80">
+        <input type="file" class="btn" formControlName="image" id="profile_image" (change)="extractImage()" />
+      </div>
+    </fieldset>
+      <fieldset>
+        <div class="grid-35">
+          <label for="fname">First Name</label>
+        </div>
+        <div class="grid-65">
+          <input type="text" id="firstname" formControlName="firstname"  tabindex="1" value="{{logged_user.firstname}}" />
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="grid-35">
+          <label for="lname">Last Name</label>
+        </div>
+        <div class="grid-65">
+          <input type="text" id="lastname" formControlName="lastname" tabindex="2" value="{{logged_user.lastname}}" />
+        </div>
+      </fieldset>
+      <!-- Username -->
+      <fieldset>
+        <div class="grid-35">
+          <label for="username">Username</label>
+        </div>
+        <div class="grid-65">
+          <input type="text" id="username" formControlName="username"name="username" tabindex="5" value="{{logged_user.username}}" />
+        </div>
+      </fieldset>
+      <!-- Description about User -->
+      <fieldset>
+        <div class="grid-35">
+          <label for="description">Biography</label>
+        </div>
+        <div class="grid-65">
+          <textarea id="biography" formControlName="biography" name="biography" cols="30" rows="auto" tabindex="3"></textarea>
+        </div>
+      </fieldset>
+      <!-- Email -->
+      <fieldset>
+        <div class="grid-35">
+          <label for="oldEmail">Email Address</label>
+        </div>
+        <div class="grid-65">
+          <input type="email" name="oldEmail" id="oldEmail" [readonly]="true" tabindex="6"
+            value="{{logged_user.email}}" />
+          <input type="text" *ngIf="isShown" placeholder="New Email" id="email" formControlName="email" name="email" value="">
+          <div *ngIf="(email?.invalid && email?.touched)" style="color: red;font-size: 15px">
+            <small *ngIf="email?.errors?.pattern" class="text-danger">Please provide a valid email address</small>
+          </div>
+          <input type="button" (click)="toggleShow()" value="change">
+        </div>
+      </fieldset>
+      <fieldset>
+        <input type="submit" class="Btn" value="Save Changes" />
+      </fieldset>
+      </form>
+    </div>
+  </div>
+  </div>
+
+
+  <!-- http://www.smashingmagazine.com/2013/08/08/release-livestyle-css-live-reload/ -->
+</body>
+
+</html>
